@@ -2,7 +2,7 @@
 //  CylinderMenuTests.swift
 //  CylinderMenuTests
 //
-//  Created by neo on 23.04.15.
+//  Created by NSSimpleApps on 23.04.15.
 //  Copyright (c) 2015 NSSimpleApps. All rights reserved.
 //
 
