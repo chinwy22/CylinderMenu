@@ -8,6 +8,24 @@
 
 import UIKit
 
+extension CGVector {
+    
+    func angle(v: CGVector) -> CGFloat {
+        
+        let dot = self.dx*v.dx + self.dy*self.dy
+        let det = self.dx*v.dy - self.dy*v.dx
+        
+        let result = atan2(det, dot)
+        
+        if result.isNaN {
+            
+            return 0
+        }
+        return result
+    }
+}
+
+
 let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
@@ -15,6 +33,8 @@ class CollectionViewController: UICollectionViewController {
     var numberOfCells = 6
     
     var radius: CGFloat = 0
+    
+    var initialPoint = CGPointZero
     
     override func viewDidLoad() {
         
@@ -30,7 +50,7 @@ class CollectionViewController: UICollectionViewController {
         button.layer.cornerRadius = sizeOfCell / 2.0
         button.layer.borderColor = UIColor.blackColor().CGColor
         button.layer.borderWidth = 2.0
-        button.addTarget(self, action: Selector("moveCells:"), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: Selector("hideOrShowCells:"), forControlEvents: .TouchUpInside)
         
         self.collectionView!.addSubview(button)
         
@@ -50,28 +70,6 @@ class CollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func handleRotationGesture(sender: UIRotationGestureRecognizer) {
-        
-        if let collectionViewLayout = self.collectionView?.collectionViewLayout as? CylinderFlowLayout {
-            
-            if sender.state == .Began {
-                
-                sender.rotation = collectionViewLayout.initialAngle
-                
-            } else if sender.state == .Changed {
-                
-                self.collectionView?.performBatchUpdates({ () -> Void in
-                    
-                    collectionViewLayout.initialAngle = sender.rotation
-                    }, completion: nil)
-                
-            } else if sender.state == .Ended {
-                
-                let count: Int = Int(sender.rotation/CGFloat(2*M_PI))
-                collectionViewLayout.initialAngle = sender.rotation - CGFloat(count)*CGFloat(2*M_PI)
-            }
-        }
-    }
     @IBAction func handleTapGesture(sender: UITapGestureRecognizer) {
         
         if let indexPath = self.collectionView?.indexPathForItemAtPoint(sender.locationInView(self.collectionView)) {
@@ -92,6 +90,42 @@ class CollectionViewController: UICollectionViewController {
         
     }
     
+    @IBAction func handlePanGesture(sender: UIPanGestureRecognizer) {
+        
+        if let collectionViewLayout = self.collectionView?.collectionViewLayout as? CylinderFlowLayout {
+            
+            if sender.state == .Began {
+                
+                self.initialPoint = sender.locationInView(sender.view)
+                
+            } else if sender.state == .Changed {
+                
+                let center = sender.view?.center
+                
+                let initialVector = CGVector(dx: self.initialPoint.x - center!.x, dy: self.initialPoint.y - center!.y)
+                
+                let currentPoint = sender.locationInView(sender.view)
+                
+                let currentVector = CGVector(dx: currentPoint.x - center!.x, dy: currentPoint.y - center!.y)
+                
+                var angle = initialVector.angle(currentVector)
+                
+                self.initialPoint = currentPoint
+                    
+                self.collectionView?.performBatchUpdates({ () -> Void in
+                    
+                    collectionViewLayout.initialAngle += angle
+                    
+                    }, completion: nil)
+                
+            } else if sender.state == .Ended {
+                
+                let count = Int(collectionViewLayout.initialAngle/CGFloat(2*M_PI))
+                
+                collectionViewLayout.initialAngle -= CGFloat(count)*CGFloat(2*M_PI)
+            }
+        }
+    }
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -120,7 +154,7 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
-    func moveCells(sender: UIButton) {
+    func hideOrShowCells(sender: UIButton) {
         
         if let collectionViewLayout = self.collectionView?.collectionViewLayout as? CylinderFlowLayout {
             

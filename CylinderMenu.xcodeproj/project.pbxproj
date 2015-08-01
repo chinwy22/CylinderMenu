@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B50EA7B61AED63E50081E975 /* CylinderMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = B50EA7B51AED63E50081E975 /* CylinderMenu.gif */; };
 		B56268861AEA9AEB00B29866 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56268851AEA9AEB00B29866 /* CollectionViewController.swift */; };
 		B562688A1AEA9B8200B29866 /* CylinderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56268891AEA9B8200B29866 /* CylinderFlowLayout.swift */; };
+		B5BE38CD1B6CEAE8005C414B /* CylinderMenu.gif in Resources */ = {isa = PBXBuildFile; fileRef = B5BE38CC1B6CEAE8005C414B /* CylinderMenu.gif */; };
 		B5D1FB801AE95EAD0070F9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1FB7F1AE95EAD0070F9FC /* AppDelegate.swift */; };
 		B5D1FB851AE95EAD0070F9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D1FB831AE95EAD0070F9FC /* Main.storyboard */; };
 		B5D1FB871AE95EAD0070F9FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D1FB861AE95EAD0070F9FC /* Images.xcassets */; };
@@ -28,9 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B50EA7B51AED63E50081E975 /* CylinderMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CylinderMenu.gif; sourceTree = "<group>"; };
 		B56268851AEA9AEB00B29866 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B56268891AEA9B8200B29866 /* CylinderFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CylinderFlowLayout.swift; sourceTree = "<group>"; };
+		B5BE38CC1B6CEAE8005C414B /* CylinderMenu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CylinderMenu.gif; sourceTree = "<group>"; };
 		B5D1FB7A1AE95EAD0070F9FC /* CylinderMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CylinderMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D1FB7E1AE95EAD0070F9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5D1FB7F1AE95EAD0070F9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 				B5D1FB7F1AE95EAD0070F9FC /* AppDelegate.swift */,
 				B56268851AEA9AEB00B29866 /* CollectionViewController.swift */,
 				B56268891AEA9B8200B29866 /* CylinderFlowLayout.swift */,
-				B50EA7B51AED63E50081E975 /* CylinderMenu.gif */,
+				B5BE38CC1B6CEAE8005C414B /* CylinderMenu.gif */,
 				B5D1FB831AE95EAD0070F9FC /* Main.storyboard */,
 				B5D1FB861AE95EAD0070F9FC /* Images.xcassets */,
 				B5D1FB881AE95EAD0070F9FC /* LaunchScreen.xib */,
@@ -201,7 +201,7 @@
 				B5D1FB851AE95EAD0070F9FC /* Main.storyboard in Resources */,
 				B5D1FB8A1AE95EAD0070F9FC /* LaunchScreen.xib in Resources */,
 				B5D1FB871AE95EAD0070F9FC /* Images.xcassets in Resources */,
-				B50EA7B61AED63E50081E975 /* CylinderMenu.gif in Resources */,
+				B5BE38CD1B6CEAE8005C414B /* CylinderMenu.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -338,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,6 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CylinderMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -361,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CylinderMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
