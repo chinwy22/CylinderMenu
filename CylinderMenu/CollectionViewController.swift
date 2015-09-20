@@ -49,7 +49,7 @@ class CollectionViewController: UICollectionViewController {
         button.clipsToBounds = true
         button.layer.cornerRadius = sizeOfCell / 2.0
         button.layer.borderColor = UIColor.blackColor().CGColor
-        button.layer.borderWidth = 2.0
+        button.layer.borderWidth = 1.0
         button.addTarget(self, action: Selector("hideOrShowCells:"), forControlEvents: .TouchUpInside)
         
         self.collectionView!.addSubview(button)
@@ -108,7 +108,7 @@ class CollectionViewController: UICollectionViewController {
                 
                 let currentVector = CGVector(dx: currentPoint.x - center!.x, dy: currentPoint.y - center!.y)
                 
-                var angle = initialVector.angle(currentVector)
+                let angle = initialVector.angle(currentVector)
                 
                 self.initialPoint = currentPoint
                     
@@ -139,15 +139,15 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) 
     
         cell.backgroundColor = UIColor.lightGrayColor()
         cell.clipsToBounds = true
         cell.layer.cornerRadius = min(cell.bounds.width, cell.bounds.height) / 2.0
         cell.layer.borderColor = UIColor.blackColor().CGColor
-        cell.layer.borderWidth = 2.0
+        cell.layer.borderWidth = 1.0
         
-        if let label = cell.viewWithTag(1001) as? UILabel {
+        if let label = cell.viewWithTag(101) as? UILabel {
             
             label.text = String(indexPath.row + 1)
         }

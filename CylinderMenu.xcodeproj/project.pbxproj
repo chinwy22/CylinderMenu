@@ -14,18 +14,7 @@
 		B5D1FB851AE95EAD0070F9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D1FB831AE95EAD0070F9FC /* Main.storyboard */; };
 		B5D1FB871AE95EAD0070F9FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D1FB861AE95EAD0070F9FC /* Images.xcassets */; };
 		B5D1FB8A1AE95EAD0070F9FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D1FB881AE95EAD0070F9FC /* LaunchScreen.xib */; };
-		B5D1FB961AE95EAE0070F9FC /* CylinderMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1FB951AE95EAE0070F9FC /* CylinderMenuTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B5D1FB901AE95EAE0070F9FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5D1FB721AE95EAD0070F9FC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5D1FB791AE95EAD0070F9FC;
-			remoteInfo = CylinderMenu;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B56268851AEA9AEB00B29866 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -37,20 +26,10 @@
 		B5D1FB841AE95EAD0070F9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5D1FB861AE95EAD0070F9FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5D1FB891AE95EAD0070F9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B5D1FB8F1AE95EAE0070F9FC /* CylinderMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CylinderMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5D1FB941AE95EAE0070F9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5D1FB951AE95EAE0070F9FC /* CylinderMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderMenuTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B5D1FB771AE95EAD0070F9FC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5D1FB8C1AE95EAE0070F9FC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				B5D1FB7C1AE95EAD0070F9FC /* CylinderMenu */,
-				B5D1FB921AE95EAE0070F9FC /* CylinderMenuTests */,
 				B5D1FB7B1AE95EAD0070F9FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				B5D1FB7A1AE95EAD0070F9FC /* CylinderMenu.app */,
-				B5D1FB8F1AE95EAE0070F9FC /* CylinderMenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,23 +78,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B5D1FB921AE95EAE0070F9FC /* CylinderMenuTests */ = {
-			isa = PBXGroup;
-			children = (
-				B5D1FB951AE95EAE0070F9FC /* CylinderMenuTests.swift */,
-				B5D1FB931AE95EAE0070F9FC /* Supporting Files */,
-			);
-			path = CylinderMenuTests;
-			sourceTree = "<group>";
-		};
-		B5D1FB931AE95EAE0070F9FC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B5D1FB941AE95EAE0070F9FC /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,39 +98,19 @@
 			productReference = B5D1FB7A1AE95EAD0070F9FC /* CylinderMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B5D1FB8E1AE95EAE0070F9FC /* CylinderMenuTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B5D1FB9C1AE95EAE0070F9FC /* Build configuration list for PBXNativeTarget "CylinderMenuTests" */;
-			buildPhases = (
-				B5D1FB8B1AE95EAE0070F9FC /* Sources */,
-				B5D1FB8C1AE95EAE0070F9FC /* Frameworks */,
-				B5D1FB8D1AE95EAE0070F9FC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B5D1FB911AE95EAE0070F9FC /* PBXTargetDependency */,
-			);
-			name = CylinderMenuTests;
-			productName = CylinderMenuTests;
-			productReference = B5D1FB8F1AE95EAE0070F9FC /* CylinderMenuTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B5D1FB721AE95EAD0070F9FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = NSSimpleApps;
 				TargetAttributes = {
 					B5D1FB791AE95EAD0070F9FC = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					B5D1FB8E1AE95EAE0070F9FC = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = B5D1FB791AE95EAD0070F9FC;
 					};
 				};
 			};
@@ -188,7 +128,6 @@
 			projectRoot = "";
 			targets = (
 				B5D1FB791AE95EAD0070F9FC /* CylinderMenu */,
-				B5D1FB8E1AE95EAE0070F9FC /* CylinderMenuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,13 +144,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5D1FB8D1AE95EAE0070F9FC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -225,23 +157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5D1FB8B1AE95EAE0070F9FC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5D1FB961AE95EAE0070F9FC /* CylinderMenuTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B5D1FB911AE95EAE0070F9FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5D1FB791AE95EAD0070F9FC /* CylinderMenu */;
-			targetProxy = B5D1FB901AE95EAE0070F9FC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5D1FB831AE95EAD0070F9FC /* Main.storyboard */ = {
@@ -284,6 +200,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -299,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -338,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,8 +268,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CylinderMenu/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "NSSimpleApps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -362,43 +280,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CylinderMenu/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "NSSimpleApps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		B5D1FB9D1AE95EAE0070F9FC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CylinderMenuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CylinderMenu.app/CylinderMenu";
-			};
-			name = Debug;
-		};
-		B5D1FB9E1AE95EAE0070F9FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CylinderMenuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CylinderMenu.app/CylinderMenu";
 			};
 			name = Release;
 		};
@@ -419,15 +304,6 @@
 			buildConfigurations = (
 				B5D1FB9A1AE95EAE0070F9FC /* Debug */,
 				B5D1FB9B1AE95EAE0070F9FC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B5D1FB9C1AE95EAE0070F9FC /* Build configuration list for PBXNativeTarget "CylinderMenuTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B5D1FB9D1AE95EAE0070F9FC /* Debug */,
-				B5D1FB9E1AE95EAE0070F9FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

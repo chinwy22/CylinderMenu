@@ -28,19 +28,19 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
         self.numberOfCells = self.collectionView!.numberOfItemsInSection(0)
     }
     
-    override func prepareForCollectionViewUpdates(updateItems: [AnyObject]!) {
+    override func prepareForCollectionViewUpdates(updateItems: [UICollectionViewUpdateItem]) {
         
         super.prepareForCollectionViewUpdates(updateItems)
         
-        for updateItem: UICollectionViewUpdateItem in updateItems as! [UICollectionViewUpdateItem] {
+        for updateItem: UICollectionViewUpdateItem in updateItems {
             
             if updateItem.updateAction == .Delete {
                 
-                self.deleteIndexPaths.append(updateItem.indexPathBeforeUpdate!)
+                self.deleteIndexPaths.append(updateItem.indexPathBeforeUpdate)
                 
             } else if updateItem.updateAction == .Insert {
                 
-                self.insertIndexPaths.append(updateItem.indexPathAfterUpdate!)
+                self.insertIndexPaths.append(updateItem.indexPathAfterUpdate)
             }
         }
     }
@@ -58,7 +58,7 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
         return self.collectionView!.frame.size
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes {
         
         let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
         attribute.size = CGSizeMake(50, 50)
@@ -69,9 +69,9 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
         return attribute
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
-        var attributes: [AnyObject] = []
+        var attributes: [UICollectionViewLayoutAttributes] = []
         
         for var i = 0; i < self.numberOfCells; i++ {
             
@@ -86,7 +86,7 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
         
         let attribute = self.layoutAttributesForItemAtIndexPath(itemIndexPath)
         
-        if contains(self.insertIndexPaths, itemIndexPath) {
+        if self.insertIndexPaths.contains(itemIndexPath) {
             
             attribute.alpha = 0.0
             attribute.center = self.center
@@ -99,7 +99,7 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
         
         let attribute = self.layoutAttributesForItemAtIndexPath(itemIndexPath)
         
-        if contains(self.deleteIndexPaths, itemIndexPath) {
+        if self.deleteIndexPaths.contains(itemIndexPath) {
             
             attribute.alpha = 0.0
             attribute.center = self.center
