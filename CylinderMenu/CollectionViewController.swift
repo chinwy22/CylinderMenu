@@ -25,16 +25,13 @@ extension CGVector {
     }
 }
 
-
-let reuseIdentifier = "Cell"
-
 class CollectionViewController: UICollectionViewController {
 
-    var numberOfCells = 6
+    private var array = [1, 2, 3, 4, 5, 6]
     
-    var radius: CGFloat = 0
+    private var radius: CGFloat = 0
     
-    var initialPoint = CGPointZero
+    private var initialPoint = CGPointZero
     
     override func viewDidLoad() {
         
@@ -50,9 +47,16 @@ class CollectionViewController: UICollectionViewController {
         button.layer.cornerRadius = sizeOfCell / 2.0
         button.layer.borderColor = UIColor.blackColor().CGColor
         button.layer.borderWidth = 1.0
-        button.addTarget(self, action: Selector("hideOrShowCells:"), forControlEvents: .TouchUpInside)
-        
+        button.addTarget(self,
+            action: "showCells:",
+            forControlEvents: .TouchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView!.addSubview(button)
+        
+        let horizontalConstraint = button.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor)
+        let vertivalConstraint = button.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor)
+        
+        NSLayoutConstraint.activateConstraints([horizontalConstraint, vertivalConstraint])
         
         let size = self.collectionView!.frame.size
         
@@ -76,15 +80,19 @@ class CollectionViewController: UICollectionViewController {
             
             self.collectionView!.performBatchUpdates({ () -> Void in
                 
+                self.array.removeAtIndex(indexPath.item)
+                
                 self.collectionView?.deleteItemsAtIndexPaths([indexPath])
-                self.numberOfCells--
+                
                 }, completion: nil)
         } else {
             
             self.collectionView!.performBatchUpdates({ () -> Void in
                 
-                self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
-                self.numberOfCells++
+                self.array.append(self.array.last ?? 0)
+                
+                self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: self.array.count - 1, inSection: 0)])
+                
                 }, completion: nil)
         }
         
@@ -135,11 +143,11 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.numberOfCells
+        return self.array.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) 
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
     
         cell.backgroundColor = UIColor.lightGrayColor()
         cell.clipsToBounds = true
@@ -149,27 +157,69 @@ class CollectionViewController: UICollectionViewController {
         
         if let label = cell.viewWithTag(101) as? UILabel {
             
-            label.text = String(indexPath.row + 1)
+            label.text = String(self.array[indexPath.item])
         }
         return cell
     }
     
-    func hideOrShowCells(sender: UIButton) {
+    internal func showCells(sender: UIButton) {
+        
+        if let collectionViewLayout = self.collectionView?.collectionViewLayout as? CylinderFlowLayout {
+            
+            self.collectionView?.performBatchUpdates({ () -> Void in
+                    
+                collectionViewLayout.radius = self.radius
+                
+                }, completion:  { (finished: Bool) -> Void in
+                    
+                    sender.removeTarget(self,
+                        action: __FUNCTION__,
+                        forControlEvents: .TouchUpInside)
+                    sender.addTarget(self,
+                        action: "hideCells:",
+                        forControlEvents: .TouchUpInside)
+            })
+        }
+    }
+    
+    internal func hideCells(sender: UIButton) {
         
         if let collectionViewLayout = self.collectionView?.collectionViewLayout as? CylinderFlowLayout {
             
             self.collectionView?.performBatchUpdates({ () -> Void in
                 
-                if sender.tag == 0 {
+                collectionViewLayout.radius = 0
+                
+                }, completion:  { (finished: Bool) -> Void in
+                    
+                    sender.removeTarget(self,
+                        action: __FUNCTION__,
+                        forControlEvents: .TouchUpInside)
+                    sender.addTarget(self,
+                        action: "showCells:",
+                        forControlEvents: .TouchUpInside)
+            })
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        self.radius = min(size.width, size.height) / 2.5
+        
+        if let collectionViewLayout = self.collectionView?.collectionViewLayout as? CylinderFlowLayout {
+            
+            collectionViewLayout.center = CGPoint(x: size.width/2, y: size.height/2)
+            
+            if collectionViewLayout.radius > 0 {
+                
+                self.collectionView?.performBatchUpdates({ () -> Void in
                     
                     collectionViewLayout.radius = self.radius
-                    sender.tag = 1
-                } else {
                     
-                    collectionViewLayout.radius = 0
-                    sender.tag = 0
-                }
-                }, completion: nil)
+                    }, completion: nil)
+            }
         }
     }
 }
