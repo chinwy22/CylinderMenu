@@ -36,11 +36,11 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
             
             if updateItem.updateAction == .Delete {
                 
-                self.deleteIndexPaths.append(updateItem.indexPathBeforeUpdate)
+                self.deleteIndexPaths.append(updateItem.indexPathBeforeUpdate!)
                 
             } else if updateItem.updateAction == .Insert {
                 
-                self.insertIndexPaths.append(updateItem.indexPathAfterUpdate)
+                self.insertIndexPaths.append(updateItem.indexPathAfterUpdate!)
             }
         }
     }
