@@ -48,7 +48,7 @@ class CollectionViewController: UICollectionViewController {
         button.layer.borderColor = UIColor.blackColor().CGColor
         button.layer.borderWidth = 1.0
         button.addTarget(self,
-            action: "showCells:",
+            action: #selector(CollectionViewController.showCells(_:)),
             forControlEvents: .TouchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView!.addSubview(button)
@@ -173,10 +173,10 @@ class CollectionViewController: UICollectionViewController {
                 }, completion:  { (finished: Bool) -> Void in
                     
                     sender.removeTarget(self,
-                        action: __FUNCTION__,
+                        action: #function,
                         forControlEvents: .TouchUpInside)
                     sender.addTarget(self,
-                        action: "hideCells:",
+                        action: #selector(CollectionViewController.hideCells(_:)),
                         forControlEvents: .TouchUpInside)
             })
         }
@@ -193,10 +193,10 @@ class CollectionViewController: UICollectionViewController {
                 }, completion:  { (finished: Bool) -> Void in
                     
                     sender.removeTarget(self,
-                        action: __FUNCTION__,
+                        action: #function,
                         forControlEvents: .TouchUpInside)
                     sender.addTarget(self,
-                        action: "showCells:",
+                        action: #selector(CollectionViewController.showCells(_:)),
                         forControlEvents: .TouchUpInside)
             })
         }

@@ -73,7 +73,7 @@ class CylinderFlowLayout: UICollectionViewFlowLayout {
         
         var attributes: [UICollectionViewLayoutAttributes] = []
         
-        for var i = 0; i < self.numberOfCells; i++ {
+        for i in 0 ..< self.numberOfCells {
             
             let indexPath = NSIndexPath(forItem: i, inSection: 0)
             
